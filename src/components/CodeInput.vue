@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { isCorrectCode } from '@/utils/secrets';
 import { onMounted, ref, watch } from 'vue';
-import { CODE } from '@/misc';
 
 const dialog = ref();
 const showCard = ref<boolean>(false);
@@ -24,7 +24,7 @@ onMounted(() => {
 });
 
 function change(event: CustomEvent) {
-  showCard.value = (event.target as HTMLInputElement).value === CODE;
+  showCard.value = isCorrectCode((event.target as HTMLInputElement).value);
 }
 </script>
 
