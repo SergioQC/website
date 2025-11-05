@@ -114,8 +114,12 @@ function isWordComplete(wordIdx: number) {
                 />
               </div>
             </template>
+            <div class="square check-square">
+              <div class="check-box">
+                <span v-show="isWordComplete(wi)" class="complete">✓</span>
+              </div>
+            </div>
           </div>
-          <div v-if="isWordComplete(wi)" class="complete">✓</div>
         </div>
       </template>
     </div>
@@ -141,10 +145,10 @@ function isWordComplete(wordIdx: number) {
 }
 
 .word-row {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 2rem;
-  position: relative;
 }
 
 .row-hint {
@@ -152,13 +156,14 @@ function isWordComplete(wordIdx: number) {
   color: var(--sl-color-neutral-700);
   text-align: right;
   padding-right: 2rem;
+  flex-shrink: 0;
 }
 
 .row-squares {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(9, 56px) 56px;
   gap: 0.25rem;
-  flex-wrap: nowrap;
-  align-items: center;
+  width: fit-content;
 }
 
 .square {
@@ -195,14 +200,26 @@ function isWordComplete(wordIdx: number) {
 }
 
 .spacer {
-  width: 10px;
+  width: 100%;
+}
+
+.check-square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-box {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
 }
 
 .complete {
   color: var(--sl-color-success-600);
-  position: absolute;
-  right: -2rem;
-  top: 50%;
-  transform: translateY(-50%);
+  font-size: 1.2rem;
 }
 </style>
