@@ -1,0 +1,1 @@
+export const FF_SHOW_CODE_INPUT = false;

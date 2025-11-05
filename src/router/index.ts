@@ -14,6 +14,11 @@ const router = createRouter({
       name: 'card',
       component: () => import('../views/CardView.vue'),
     },
+    {
+      path: '/quest',
+      name: 'quest',
+      component: () => import('../views/QuestView.vue'),
+    },
   ],
 })
 

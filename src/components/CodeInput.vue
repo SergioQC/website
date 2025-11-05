@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { isCorrectCode } from '@/utils/secrets';
 import { onMounted, ref, watch } from 'vue';
+import InstructionsLayout from './InstructionsLayout.vue';
+import { FF_SHOW_CODE_INPUT } from '@/utils/feature-flags';
 
 const dialog = ref();
-const showCard = ref<boolean>(false);
+const showCard = ref<boolean>(!FF_SHOW_CODE_INPUT);
 
 watch(
   () => showCard.value,
@@ -29,8 +31,15 @@ function change(event: CustomEvent) {
 </script>
 
 <template>
-  <sl-dialog label="Dialog" ref="dialog" class="dialog-focus dialog-deny-close" open no-header>
+  <sl-dialog
+    v-if="FF_SHOW_CODE_INPUT"
+    label="Dialog"
+    ref="dialog"
+    class="dialog-focus dialog-deny-close"
+    open
+    no-header
+  >
     <sl-input autofocus placeholder="Introduce the code" @sl-change="change"></sl-input>
   </sl-dialog>
-  <div v-if="showCard">Hejka!</div>
+  <InstructionsLayout v-if="showCard"></InstructionsLayout>
 </template>
