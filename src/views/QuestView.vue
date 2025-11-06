@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 
 const words = ref<string[]>([
   'EXPLORING',
@@ -39,6 +39,49 @@ const hints = ref<string[]>([
 
 const wordsChars = computed(() => words.value.map((w) => w.split('')))
 const inputsPerWord = ref<string[][]>(words.value.map((w) => w.split('').map(() => '')))
+
+// Local storage persistence
+const STORAGE_KEY = 'quest_inputs_v1'
+
+function saveToLocalStorage() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(inputsPerWord.value))
+  } catch {
+    // ignore storage errors (e.g., quota, private mode)
+    // console.warn('Could not save quest inputs', err)
+  }
+}
+
+function loadFromLocalStorage() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY)
+    if (!raw) return
+    const parsed = JSON.parse(raw)
+    if (!Array.isArray(parsed)) return
+
+    // Rebuild inputsPerWord ensuring shape matches current words
+    inputsPerWord.value = words.value.map((w, i) => {
+      const savedRow = Array.isArray(parsed[i]) ? parsed[i] : []
+      const chars = w.split('')
+      return chars.map((_, j) => {
+        const v = savedRow[j]
+        return typeof v === 'string' && v.length ? String(v).toUpperCase().charAt(0) : ''
+      })
+    })
+  } catch {
+    // malformed JSON or other error - ignore and keep defaults
+    // console.warn('Could not load quest inputs', err)
+  }
+}
+
+// Save whenever inputs change
+watch(inputsPerWord, () => {
+  saveToLocalStorage()
+}, { deep: true })
+
+onMounted(() => {
+  loadFromLocalStorage()
+})
 
 function handleKeydown(e: KeyboardEvent, wordIdx: number, charIdx: number) {
   const key = e.key
