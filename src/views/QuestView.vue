@@ -304,9 +304,10 @@ function isWordComplete(wordIdx: number) {
                   <p>But the quest goes on, there's more to see...</p>
                   <!-- <p>But now there's a code you need to get, and this is where you'll find it:</p> -->
                   <!-- <p><i>Not in plain sight but close at hand, where thoughts are typed the clue will stand.</i></p> -->
-              <p><i>
-                One last code awaits for you. To find it now,
-                don’t miss the sign: it’s hidden under where keys align.
+              <p>
+                One last code awaits for you:
+                <br /><br /><i>Not in plain sight but close at hand, where thoughts are typed the clue will stand.
+                Beneath the keys, where fingers flow, the final hint is set below.
               </i></p>
               <div class="modal-body">
                 <div class="code-row">
