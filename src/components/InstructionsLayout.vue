@@ -80,7 +80,7 @@ const prevSlide = () => {
 
         <!-- Navigation Controls -->
         <div class="slide-controls">
-          <button class="control-btn prev-btn" @click="prevSlide">←</button>
+          <button class="control-btn prev-btn" @click="prevSlide"><</button>
           <div class="slide-indicators">
             <span
               v-for="(_, index) in slides"
@@ -89,7 +89,7 @@ const prevSlide = () => {
               :class="{ active: index === currentSlide }"
             ></span>
           </div>
-          <button class="control-btn next-btn" @click="nextSlide">→</button>
+          <button class="control-btn next-btn" @click="nextSlide">></button>
         </div>
       </div>
     </div>
@@ -129,12 +129,13 @@ const prevSlide = () => {
   position: relative;
   z-index: 10;
   display: flex;
-  gap: 2rem;
-  padding: 2rem;
   overflow: hidden;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  gap: 0.5rem;
 }
 
 .title-section {
@@ -151,17 +152,17 @@ const prevSlide = () => {
   font-size: 2.2rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  /* text-shadow: 2px 2px 0 var(--8bit-deep-pink); */
+  text-shadow: 2px 2px 0 var(--8bit-hot-pink);
   margin: 0 0 0.5rem 0;
   line-height: 1;
   padding-top: 2rem;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .centered-subtitle {
   /* color: var(--8bit-hot-pink); */
-  color: var(--8bit-light-pink);
-  font-weight: 600;
+  color: var(--8bit-light-gold);
+  font-weight: 800;
   font-family: 'Press Start 2P', monospace;
   font-size: 0.7rem;
   /* text-transform: uppercase; */
@@ -182,10 +183,12 @@ const prevSlide = () => {
   gap: 1.5rem;
   /* background: linear-gradient(135deg, rgba(255, 215, 229, 0.1) 0%, rgba(255, 105, 180, 0.05) 100%); */
   /* border: 4px solid var(--8bit-hot-pink); */
-  border: 4px solid var(--8bit-light-pink);
+  border: 4px solid var(--8bit-light-gold);
   padding: 1.5rem;
   /* box-shadow: 4px 4px 0 rgba(255, 20, 147, 0.2); */
   overflow-y: auto;
+  flex: 1;
+  min-height: 400px;
 }
 
 .slide-header {
@@ -196,21 +199,20 @@ const prevSlide = () => {
 
 .slide-title {
   /* color: var(--8bit-gold); */
-  /* color: var(--white-color); */
   color: var(--8bit-light-pink);
   font-family: 'Press Start 2P', monospace;
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-transform: uppercase;
-  /* text-shadow: 2px 2px 0 var(--8bit-deep-pink); */
+  text-shadow: 1px 1px 0 var(--8bit-hot-pink);
   margin: 0;
   line-height: 1.3;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 2px;
 }
 
 .slide-content {
   /* color: var(--8bit-hot-pink); */
-  color: var(--8bit-light-pink);
+  color: var(--8bit-light-gold);
   font-family: 'Press Start 2P', monospace;
   font-size: 0.8rem;
   /* text-transform: uppercase; */
@@ -220,7 +222,7 @@ const prevSlide = () => {
   flex: 1;
   overflow-y: auto;
   padding-right: 0.5rem;
-  font-weight: 600;
+  font-weight: 800;
   white-space: pre-wrap;
 }
 
@@ -237,17 +239,19 @@ const prevSlide = () => {
 .control-btn {
   flex: 0 0 auto;
   /* background: var(--8bit-deep-pink); */
-  background: var(--dull-color);
+  background: transparent;
+  /* background: var(--8bit-green); */
   /* border: 3px solid var(--8bit-gold); */
-  border: 3px solid var(--8bit-light-pink);
+  border: 3px solid var(--8bit-light-gold);
   /* color: var(--8bit-gold); */
+  /* color: var(--8bit-light-gold); */
   color: var(--8bit-light-pink);
   font-family: 'Press Start 2P', monospace;
   font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.1s ease;
-  /* text-shadow: 1px 1px 0 #000; */
+  /* text-shadow: 1px 1px 0 var(--8bit-hot-pink); */
   /* box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3); */
   padding: 0.4rem 0.8rem;
 }
@@ -262,56 +266,16 @@ const prevSlide = () => {
   width: 12px;
   height: 12px;
   /* border: 2px solid var(--8bit-hot-pink); */
-  border: 2px solid var(--8bit-light-pink);
-  /* background: transparent; */
-  background: var(--dull-color);
+  border: 2px solid var(--8bit-light-gold);
+  background: transparent;
+  /* background: var(--dull-color); */
   cursor: pointer;
   transition: all 0.1s ease;
 }
 
 .indicator.active {
-  /* background: var(--8bit-gold);
-  box-shadow: 0 0 8px var(--8bit-gold); */
+  /* background: var(--8bit-gold); */
+  /* box-shadow: 0 0 8px var(--8bit-hot-pink); */
   background: var(--8bit-light-pink);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .main-content {
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 1.5rem 1rem;
-  }
-
-  .info-panel {
-    flex: 1;
-    min-height: 250px;
-  }
-}
-
-@media (min-width: 769px) {
-  .centered-title {
-    font-size: 3rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .centered-title {
-    font-size: 4rem;
-    letter-spacing: 3px;
-  }
-
-  .main-content {
-    gap: 3rem;
-    padding: 3rem;
-  }
-
-  .slide-title {
-    font-size: 1.2rem;
-  }
-
-  .slide-content {
-    font-size: 0.75rem;
-  }
 }
 </style>

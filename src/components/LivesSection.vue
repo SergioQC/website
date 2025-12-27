@@ -21,7 +21,7 @@ const heartbeatClass = computed(() => (percentage.value === 0 ? 'heart-icon-off'
           --indicator-color: #ff1493; */
           --track-width: 10px;
           --indicator-width: 10px;
-          --size: 220px;
+          --size: 170px;
         "
       >
         <div class="lives-content">
@@ -32,7 +32,7 @@ const heartbeatClass = computed(() => (percentage.value === 0 ? 'heart-icon-off'
           <sl-icon name="suit-heart-fill" :class="heartbeatClass"></sl-icon>
         </div>
       </sl-progress-ring>
-      <p class="lives-title">Extra Hearts Remaining</p>
+      <!-- <p class="lives-title">Extra Hearts Remaining</p> -->
     </div>
   </div>
 </template>
@@ -101,24 +101,23 @@ const heartbeatClass = computed(() => (percentage.value === 0 ? 'heart-icon-off'
   font-weight: 900;
   font-size: 32px;
   /* color: var(--8bit-gold); */
-  color: var(--8bit-light-pink);
-  /* text-shadow: 2px 2px 0 var(--8bit-deep-pink); */
+  color: var(--8bit-light-gold);
+  text-shadow: 1px 1px 0 var(--8bit-hot-pink);
   letter-spacing: 2px;
 }
 
 .lives-label {
   font-size: 18px;
   opacity: 1;
-  /* color: var(--8bit-hot-pink);
-  text-shadow: 1px 1px 0 var(--8bit-deep-pink); */
-  color: var(--8bit-light-pink);
+  /* color: var(--8bit-hot-pink); */
+  text-shadow: 1px 1px 0 var(--8bit-hot-pink);
+  color: var(--8bit-light-gold);
 }
 
 .heart-icon {
   color: var(--8bit-light-pink);
   font-size: 20px;
   animation: pixelbeat 0.75s infinite;
-  text-shadow: 1px 1px 0 var(--8bit-gold);
   position: relative;
   z-index: 1;
 }
@@ -141,24 +140,13 @@ const heartbeatClass = computed(() => (percentage.value === 0 ? 'heart-icon-off'
 }
 
 .lives-title {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.7rem;
+  font-weight: 800;
   /* color: var(--8bit-deep-pink); */
-  color: var(--8bit-light-pink);
+  color: var(--8bit-light-gold);
   letter-spacing: 2px;
   text-transform: uppercase;
   /* text-shadow: 1px 1px 0 var(--8bit-hot-pink); */
   position: relative;
-}
-
-@media (max-width: 768px) {
-  .lives-card {
-    padding: 20px;
-    gap: 12px;
-  }
-
-  .lives-number {
-    font-size: 28px;
-  }
 }
 </style>

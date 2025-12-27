@@ -16,12 +16,14 @@
   --8bit-light-bg: #cf86b4;
   --8bit-dark-hover: #660033;
   --8bit-hot-pink: #ff69b4;
-  --8bit-light-pink: #ff93c9;
+  --8bit-light-pink: #ffd7eb;
+  --8bit-light-gold: #ffe553;
   --8bit-deep-pink: #ff1493;
   --8bit-gold: #ffd700;
   --8bit-muted-pink: #ffcae7;
   --8bit-text-shadow: #ff1493;
-  --8bit-green: #c6ff36;
+  /* --8bit-tennis-green: #c6ff36; */
+  --8bit-green: #16420c;
 }
 
 #app {

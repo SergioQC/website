@@ -138,7 +138,7 @@ onMounted(() => {
 
 .details-group sl-details::part(summary) {
   padding: 8px;
-  font-weight: 600;
+  font-weight: 800;
   font-size: 18px;
   cursor: pointer;
   transition: all 0.1s ease;
