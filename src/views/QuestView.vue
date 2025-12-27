@@ -301,14 +301,16 @@ function isWordComplete(wordIdx: number) {
           <div v-if="showDialog" class="overlay">
             <div class="modal">
               <h2>Well done!</h2>
-                  <p>But the quest goes on, there's more to see...</p>
-                  <!-- <p>But now there's a code you need to get, and this is where you'll find it:</p> -->
-                  <!-- <p><i>Not in plain sight but close at hand, where thoughts are typed the clue will stand.</i></p> -->
+              <p>But the quest goes on, there's more to see...</p>
+              <!-- <p>But now there's a code you need to get, and this is where you'll find it:</p> -->
+              <!-- <p><i>Not in plain sight but close at hand, where thoughts are typed the clue will stand.</i></p> -->
               <p>
                 One last code awaits for you:
-                <br /><br /><i>Not in plain sight but close at hand, where thoughts are typed the clue will stand.
-                Beneath the keys, where fingers flow, the final hint is set below.
-              </i></p>
+                <br /><br /><i
+                  >Not in plain sight but close at hand, where thoughts are typed the clue will
+                  stand. Beneath the keys, where fingers flow, the final hint is set below.
+                </i>
+              </p>
               <div class="modal-body">
                 <div class="code-row">
                   <input
@@ -342,7 +344,8 @@ function isWordComplete(wordIdx: number) {
 
 <style scoped>
 .quest-page {
-  padding: 1rem;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .page-title {
@@ -536,6 +539,4 @@ function isWordComplete(wordIdx: number) {
 .square.highlighted .index {
   color: var(--sl-color-primary-600);
 }
-
-
 </style>

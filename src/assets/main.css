@@ -1,34 +1,32 @@
 @import './base.css';
 
+:root {
+  /* Primary Colors */
+  --primary-color: #ff1493;
+  --secondary-color: #ff69b4;
+  --accent-color: #ffd700;
+  --grey-color: #6e6e6e;
+  --grey-color-2: #404040;
+  --white-color: #fff;
+  /* --dull-color: rgba(255, 255, 203, 0.7); */
+  --dull-color: rgba(255, 255, 203, 0.7);
+
+  /* 8-bit Romantic Theme */
+  --8bit-dark-bg: #060e2b;
+  --8bit-light-bg: #cf86b4;
+  --8bit-dark-hover: #660033;
+  --8bit-hot-pink: #ff69b4;
+  --8bit-light-pink: #ff93c9;
+  --8bit-deep-pink: #ff1493;
+  --8bit-gold: #ffd700;
+  --8bit-muted-pink: #ffcae7;
+  --8bit-text-shadow: #ff1493;
+  --8bit-green: #c6ff36;
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-  }
-
-  #app {
-    padding: 0 2rem;
-  }
 }
