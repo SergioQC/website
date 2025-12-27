@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import LivesSection from './LivesSection.vue';
 
-const currentSlide = ref(2);
+const currentSlide = ref(0);
 
 const slides = [
   {
